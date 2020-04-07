@@ -69,4 +69,31 @@ RSpec.describe User, type: :model do
     end
 
   end
+
+  describe '.authenticate_with_credentials' do
+
+    before do
+      @user = User.create!(:first_name => 'first',
+                      :last_name => 'last',
+                      :email => 'email@email.com',
+                      :password => 'password',
+                      :password_confirmation => 'password',
+                      :id => 1)
+    end
+
+    it 'is not valid if no user is found with a given email' do
+      user = @user
+      email = 'a'
+      expect(User.find_by_email(email)).to_not eq user
+    end
+
+    it 'is not valid if a password doesn\'t match' do
+      user = @user
+      email = 'email@email.com'
+      password = 'aa'
+      expect(User.find_by_email(email).password).to_not eq password
+    end
+
+  end
+
 end
