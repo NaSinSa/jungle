@@ -1,5 +1,8 @@
-RSpec.configure do |config|
+require "capybara/rails"
+require "capybara/rspec"
+require "capybara/poltergeist" 
 
+RSpec.configure do |config|
   config.before(:suite) do
     if config.use_transactional_fixtures?
       raise(<<-MSG)

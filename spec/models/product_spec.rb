@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   describe 'Validations' do
 
-    @category = Category.new(:name => 'cat')
     before do
+      @category = Category.new(:name => 'cat')
       @product = Product.new(:name => 'namename',
                             :price => 10000,
                             :quantity => 10,
