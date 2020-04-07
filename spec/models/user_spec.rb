@@ -84,14 +84,25 @@ RSpec.describe User, type: :model do
     it 'is not valid if no user is found with a given email' do
       user = @user
       email = 'a'
-      expect(User.find_by_email(email)).to_not eq user
+      expect(User.authenticate_with_credentials(email, user.password)).to_not eq user
     end
 
     it 'is not valid if a password doesn\'t match' do
       user = @user
-      email = 'email@email.com'
       password = 'aa'
-      expect(User.find_by_email(email).password).to_not eq password
+      expect(User.authenticate_with_credentials(user.email, password)).to_not eq password
+    end
+
+    it 'is valid if a user inputs an email with spaces before and/or after' do
+      user = @user
+      email = ' email@email.com  '
+      expect(User.authenticate_with_credentials(email, user.password)).to eq user
+    end
+
+    it 'is valid if a user inputs an email with wrong cases' do
+      user = @user
+      email = 'EMAIL@emAil.cOm'
+      expect(User.authenticate_with_credentials(email, user.password)).to eq user
     end
 
   end
