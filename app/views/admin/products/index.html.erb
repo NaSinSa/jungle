@@ -8,6 +8,14 @@
     <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
   </div>
 
+  <% flash.each do |key, value| %>
+    <% if key == 'notice' %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+    <% end %>  
+  <% end %>
+
   <div class="panel panel-default products">
 
     <table class="table table-bordered">
