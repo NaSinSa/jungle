@@ -3,6 +3,9 @@
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
 # Screenshots
+!["screenshot of the first page"](https://github.com/NaSinSa/jungle/blob/master/docs/index.png?raw=true)
+!["screenshot of my cart with items"](https://github.com/NaSinSa/jungle/blob/master/docs/myCart.png?raw=true)
+!["screenshot of order details"](https://github.com/NaSinSa/jungle/blob/master/docs/order.png?raw=true)
 
 ## Setup
 
