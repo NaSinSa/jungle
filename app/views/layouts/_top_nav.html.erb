@@ -55,7 +55,9 @@
             <%= link_to 'Sign Up', [:signup] %>
           </li>
         <% else %>
-          <li>Hi <%= current_user.email %>!</li>
+          <li id="user">
+            <a href="#">Hi <%= current_user.email %>!</a>
+          </li>
           <li>
             <%= link_to 'Logout', [:logout] %>
           </li>
